@@ -15,7 +15,7 @@ class MyWindow(QWidget):
         self.label = QLabel()
 
         layout = QVBoxLayout()
-        layout.addWidget(self.pushButton)
+        layout.addWidget(self.openButton)
         layout.addWidget(self.label)
 
         self.setLayout(layout)
