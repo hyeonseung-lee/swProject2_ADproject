@@ -1,5 +1,8 @@
+#-*- coding: utf-8 -*-
 import sys
 from PyQt5.QtWidgets import *
+from image import Image
+from PyQt5.QtCore import Qt
 
 class MyWindow(QWidget):
     def __init__(self):
@@ -7,8 +10,8 @@ class MyWindow(QWidget):
         self.setupUI()
 
     def setupUI(self):
-        self.setGeometry(800, 200, 900, 900)
-        self.setWindowTitle("PyStock v0.1")
+        self.setGeometry(800, 200, 300, 150)
+        self.setWindowTitle("Test Title")
 
         self.openButton = QPushButton("File Open")
         self.openButton.clicked.connect(self.openButtonClicked)
@@ -19,11 +22,23 @@ class MyWindow(QWidget):
         layout.addWidget(self.label)
 
         self.setLayout(layout)
+        self.show()
 
+    #Get File directory Button
     def openButtonClicked(self):
         fname = QFileDialog.getOpenFileName(self)
         self.label.setText(fname[0])
         self.dir = fname[0]
+        self.pix = Image(self.dir)
+
+    def keyPressEvent(self, e):
+        if e.key() == Qt.Key_Escape:
+            self.close()
+            try:
+                self.pix.keyPressEvent(e)
+            except:
+                pass
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
