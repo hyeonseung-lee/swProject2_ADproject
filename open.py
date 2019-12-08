@@ -30,7 +30,10 @@ class MyWindow(QWidget):
         self.label.setText(fname[0])
         self.dir = fname[0]
         self.pix = Image(self.dir)
-
+        ocr = OCR(self.dir)
+        self.sentences = ocr.getString()
+        self.label.setText(self.sentences[0])
+        
     def keyPressEvent(self, e):
         if e.key() == Qt.Key_Escape:
             self.close()
