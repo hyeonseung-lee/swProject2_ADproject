@@ -50,6 +50,7 @@ Software Project II  AD project
 	-현승
 	papago API를 JSON형태로 사용하여 text기반으로 intepret할 수 있는 코드를 구현했다.
 	프로그램의 이름을 image 와 translator를 합성한 imagelator로 선정했다.
+	naver API중 언어인식을 사용하여 입력된 텍스트의 언어를 인식하여 papago API로 전달하는 기능을 구현했다.
 
 
 	* 발견된 제한사항
@@ -59,7 +60,8 @@ Software Project II  AD project
 	#추가적인 목표
 		1. 번역 가능한 언어를 몇가지로 선정할 것인가?
 
-
+	
+	12월 8일 오늘, 순항중.
 
 
 
