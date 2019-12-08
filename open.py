@@ -2,6 +2,7 @@
 import sys
 from PyQt5.QtWidgets import *
 from image import Image
+from OCR import OCR
 from PyQt5.QtCore import Qt
 
 class MyWindow(QWidget):
