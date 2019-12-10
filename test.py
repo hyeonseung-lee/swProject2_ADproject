@@ -1,5 +1,12 @@
 from papago import *
 
+text = "안녕 나는 실험대상이야."
+target = "영어"
 
-papa = DetectTranslator("영어", "안녕 나는 실험대상이야.")
-print(papa.translateText())
+
+translator = DetectTranslator(target)
+
+translated = translator.translateText(text)
+
+print(translated)
+

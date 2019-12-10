@@ -4,7 +4,7 @@ import json, pprint
 import urllib.request
 class DetectTranslator():
 
-    def __init__(self, targetLang, text):
+    def __init__(self, targetLang):
 
         self.client_id = "qzJp_knRrRBfUxhE3Hly"  # client ID received from naver developer center.
         self.client_secret = "3DRB_k92uK"        # client secret receiver from naver developer center.
@@ -24,11 +24,10 @@ class DetectTranslator():
         # possible combinations : ko<->en, ko<->zh-CN, ko<->zh-TW, ko<->es, ko<->fr, ko<->vi, ko<->th, ko<->id, en<->ja, en<->fr
 
         self.target_Lang = self.target_langCode[targetLang]                      # set target code
-        self.text = text
 
-    def translateText(self):
+    def translateText(self, text):
         ####################### detect language ##########################
-        detect_encQuery = urllib.parse.quote(self.text)
+        detect_encQuery = urllib.parse.quote(text)
         detect_data = "query=" + detect_encQuery
 
         # request to WEB
@@ -52,7 +51,7 @@ class DetectTranslator():
 
 
         ####################### translaor #################################
-        trans_encText = urllib.parse.quote(self.text)
+        trans_encText = urllib.parse.quote(text)
         srcLang = detect_data["langCode"]  # setting source from language detector
         tarLang = self.target_Lang              # setting target language from user selected
         trans_data = "source={}&target={}&text=".format(srcLang, tarLang) + trans_encText
