@@ -78,6 +78,7 @@ while True:
         trans_text = trans_data['message']['result']['translatedText']
 
     else:   # fail
+
         print("Error Code:" + trans_rescode)
 
 
