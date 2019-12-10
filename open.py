@@ -57,9 +57,10 @@ class MyWindow(QWidget):
         self.setLayout(hlayout)
         self.show()
 
-    # 사진의 경로를 얻어오는 버튼
     def ButtonClicked(self):
         button = self.sender()
+        
+        # file open 버튼이 눌리면 사진의 경로를 구해오는 창이뜬다
         if button.text() == "File Open":
             # 경로 선택창을 띄움
             fname = QFileDialog.getOpenFileName(self)
@@ -76,6 +77,8 @@ class MyWindow(QWidget):
 
             except:
                 pass
+            
+        # Translate 버튼이 눌리면 papago에 번역을 요청한다
         elif button.text() == "Translate":
             if self.origin.toPlainText() != '':
                 #같은 언어 번역 시도시 발생하는 오류 제거
@@ -86,11 +89,11 @@ class MyWindow(QWidget):
                     self.trans.setText(self.origin.toPlainText())
             else:
                 self.trans.setText("입력받은 문자가 없습니다!")
-
+        # clear버튼을 누르면 모든 text를 지운다
         elif button.text() == "Clear":
             self.origin.clear()
             self.trans.clear()
-
+        #change를 누르면 위 아래 텍스트의 위치를 바꾼다
         elif button.text() == "Change":
             save = self.origin.toPlainText()
             self.origin.setText(self.trans.toPlainText())
